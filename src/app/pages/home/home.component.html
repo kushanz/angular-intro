@@ -1,0 +1,26 @@
+<hello name="{{ name }}"></hello>
+<p changeColor>
+  Start editing to see some magic happen :)
+</p>
+<div> Months :
+   <select (change)="changemonth($event)" name="month">
+      <option *ngFor = "let i of months">{{i}}</option>
+   </select>
+   <select name="colors" id="colors" [(ngModel)]="selectedColor">
+     <option *ngFor = "let i of colors">{{i}}</option>
+   </select>
+</div>
+<br/>
+<div>
+   <span *ngIf = "isavailable; then condition1 else condition2">Condition is valid.</span>
+   <ng-template #condition1>Condition is valid</ng-template>
+   <ng-template #condition2>Condition is invalid</ng-template>
+</div>
+<button (click)="clickme($event)">Click me</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md6">
+      <input class="form-control" type="text" [(ngModel)]="selectedColor">
+    </div>
+  </div>
+</div>
