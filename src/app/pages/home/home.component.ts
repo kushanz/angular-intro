@@ -1,30 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
+import {UsersService} from '../../Services/users.service'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [UsersService]
 })
 export class HomeComponent implements OnInit {
  name = 'Global Dev rtergt edg f';
-  isavailable = false;
-  months = ["January", "Feburary", "March", "April", "May", 
-            "June", "July", "August", "September",
-            "October", "November", "December"];
-  colors = ['green','blue','yellow','black'];
-  selectedColor = "green"
-  i = 0;
-  constructor() { }
+  users;
+  constructor(usersService: UsersService) {
+    this.users = usersService.getAllUsers();
+  }
 
   ngOnInit() {
   }
-  clickme(event) {
-   console.log(event);
-  }
-  changemonth(e) {
-    console.log(e)
-  }
-  changeColor() {
-
-  }
+ 
 }

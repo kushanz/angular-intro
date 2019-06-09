@@ -9,6 +9,7 @@ import { MyDirectiveDirective } from './Directives/my-directive.directive';
 import { HeaderComponent } from './template/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserComponent } from './pages/user/user.component';
+import { UsersService } from './Services/users.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
 @NgModule({
   imports:      [ BrowserModule, FormsModule,RouterModule.forRoot(routes)],
   declarations: [ AppComponent, HelloComponent, MyDirectiveDirective, HeaderComponent, HomeComponent, UserComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [UsersService]
 })
 export class AppModule { }
