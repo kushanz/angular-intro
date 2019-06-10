@@ -5,13 +5,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class PostService {
 
-  constructor(private postClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 getPost(){
-  this.postClient.get('http://tryndev.com/wp-json/wp/v2/posts')
-  .subscribe(data => {
-    console.log(data)
-  })
+  this.http.get<myData>('http://tryndev.com/wp-json/wp/v2/posts')
+  
 }
   
 
