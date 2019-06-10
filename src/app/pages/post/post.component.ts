@@ -14,7 +14,7 @@ postlist = {};
 
   ngOnInit() {
     this.postlist = this.PostService.getPost().subscribe(data=> {
-      console.log(data)
+      console.log(data.obj)
     });
   }
 
