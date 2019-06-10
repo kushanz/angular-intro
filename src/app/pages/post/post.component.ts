@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../Services/post.service';
-interface myData {
-  obj: Object
-}
+// interface myData {
+//   obj: Object
+// }
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -14,7 +14,8 @@ postlist = [];
 
   ngOnInit() {
     this.mypostService.getPost().subscribe(data=> {
-      this.postlist = data.obj;
+      this.postlist = data;
+      console.log(this.postlist)
     });
   }
 
