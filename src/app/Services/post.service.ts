@@ -8,9 +8,8 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
 getPost(){
-  this.http.get<myData>('http://tryndev.com/wp-json/wp/v2/posts')
+  return this.http.get<myData>('https://tryndev.com/wp-json/wp/v2/posts')
   
 }
-  
 
 }

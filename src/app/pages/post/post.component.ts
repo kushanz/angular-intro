@@ -10,10 +10,10 @@ interface myData {
 })
 export class PostComponent implements OnInit {
 postlist = {};
-  constructor(private postService: PostService) { }
+  constructor(private mypostService: PostService) { }
 
   ngOnInit() {
-    this.postlist = this.PostService.getPost().subscribe(data=> {
+    this.postlist = this.mypostService.getPost().subscribe(data=> {
       console.log(data.obj)
     });
   }
