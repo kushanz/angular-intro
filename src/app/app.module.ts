@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { UserComponent } from './pages/user/user.component';
 import { UsersService } from './Services/users.service';
 import { PostComponent } from './pages/post/post.component';
+import { PostService } from './Services/post.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,6 +24,6 @@ const routes: Routes = [
   imports:      [ BrowserModule, FormsModule,RouterModule.forRoot(routes)],
   declarations: [ AppComponent, HelloComponent, MyDirectiveDirective, HeaderComponent, HomeComponent, UserComponent, PostComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [UsersService]
+  providers: [UsersService, PostService]
 })
 export class AppModule { }
