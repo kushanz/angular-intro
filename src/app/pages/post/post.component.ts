@@ -9,12 +9,12 @@ interface myData {
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-postlist = {};
+postlist = [];
   constructor(private mypostService: PostService) { }
 
   ngOnInit() {
-    this.postlist = this.mypostService.getPost().subscribe(data=> {
-      console.log(data.obj)
+    this.mypostService.getPost().subscribe(data=> {
+      this.postlist = data.obj;
     });
   }
 
