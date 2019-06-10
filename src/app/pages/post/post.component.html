@@ -1,10 +1,13 @@
-<div class="row">
-  <div class="card" style="width: 18rem;" *ngFor="let postitem of postlist">
+
+<div class="">
+  <div class="row">
+  <div class="card" style="width: 35rem;margin:10px;box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;" *ngFor="let postitem of postlist">
     <img class="card-img-top" src="{{postitem._embedded['wp:featuredmedia']['0'].source_url}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{postitem.slug}}</h5>
       <p class="card-text" [innerHTML]="postitem.excerpt.rendered"></p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="#" class="btn btn-primary">Go More</a>
     </div>
   </div>
+</div>
 </div>
