@@ -5,6 +5,7 @@ import {UsersService} from '../../Services/users.service'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [UsersService]
+  
 })
 export class HomeComponent implements OnInit {
  name = 'Global Dev rtergt edg f';
