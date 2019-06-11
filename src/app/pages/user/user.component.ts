@@ -11,7 +11,7 @@ import {trigger,transition,style,animate} from '@angular/animations';
     trigger('fade',[
       transition(':enter,:leave',[
         style({backgroundColor:'yellow',opacity:0}),
-        animate(2000)
+        animate(1000)
       ])
     ])
   ]
