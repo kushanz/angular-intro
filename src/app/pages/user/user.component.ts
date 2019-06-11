@@ -1,13 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import {UsersService} from '../../Services/users.service'
+import {trigger,transition,style,animate} from '@angular/animations';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+  providers: [UsersService],
+  animations:[
+    trigger('fade',[
+      transition(':enter,:leave',[
+        style({backgroundColor:'yellow',opacity:0}),
+        animate(2000)
+      ])
+    ])
+  ]
 })
 export class UserComponent implements OnInit {
-
-  constructor() { }
+ users;
+  constructor(usersService: UsersService) {
+    this.users = usersService.getAllUsers();
+  }
 
   ngOnInit() {
   }
