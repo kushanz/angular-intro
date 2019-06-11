@@ -8,9 +8,9 @@ import {trigger,transition,style,animate} from '@angular/animations';
   providers: [UsersService],
   animations:[
     trigger('fade',[
-      transition('void => *',[
+      transition(':enter,:leave',[
         style({backgroundColor:'yellow',opacity:0}),
-        animate(2000,style({backgroundColor:'white',opacity:1}))
+        animate(2000)
       ])
     ])
   ]
