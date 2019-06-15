@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import  { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AutofocusModule } from 'angular-autofocus-fix';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -21,10 +22,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user', component: UserComponent },
   { path: 'post', component: PostComponent },
+  { path: 'todo', component: TodoComponent },
 ];
 
 @NgModule({
-  imports: [ BrowserModule, FormsModule,RouterModule.forRoot(routes),BrowserModule,HttpClientModule,BrowserAnimationsModule],
+  imports: [ BrowserModule, FormsModule,RouterModule.forRoot(routes),BrowserModule,HttpClientModule,BrowserAnimationsModule,AutofocusModule],
   declarations: [ AppComponent, HelloComponent, MyDirectiveDirective, HeaderComponent, HomeComponent, UserComponent, PostComponent, TodoComponent ],
   bootstrap:    [ AppComponent ],
   providers: [UsersService, PostService]
