@@ -14,6 +14,7 @@ import { UserComponent } from './pages/user/user.component';
 import { UsersService } from './Services/users.service';
 import { PostComponent } from './pages/post/post.component';
 import { PostService } from './Services/post.service';
+import { TodoComponent } from './pages/todos/todo/todo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,7 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [ BrowserModule, FormsModule,RouterModule.forRoot(routes),BrowserModule,HttpClientModule,BrowserAnimationsModule],
-  declarations: [ AppComponent, HelloComponent, MyDirectiveDirective, HeaderComponent, HomeComponent, UserComponent, PostComponent ],
+  declarations: [ AppComponent, HelloComponent, MyDirectiveDirective, HeaderComponent, HomeComponent, UserComponent, PostComponent, TodoComponent ],
   bootstrap:    [ AppComponent ],
   providers: [UsersService, PostService]
 })
