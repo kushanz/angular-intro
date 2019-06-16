@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TodoComponent implements OnInit {
 todos: Todo[];
 todoTitle:string;
+beforeEditCache:string;
 idForTodo:number;
 
 
@@ -15,6 +16,7 @@ idForTodo:number;
 
   ngOnInit() {
     this.todoTitle = "";
+    this.beforeEditCache = "";
     this.todos = [
       {
         id:1,
@@ -54,9 +56,17 @@ idForTodo:number;
     this.todos = this.todos.filter(todo => todo.id != id);
   }
   editTodoItem(todoitem: Todo) {
+    this.beforeEditCache = todoitem.title;
     todoitem.editing = true;
   }
-  doneEdit(todoitem:Todo) {
+  doneEdit(todoitem:Todo):void {
+    if(todoitem.title.trim().length ===0) {
+      todoitem.title = this.beforeEditCache;
+    }
+    todoitem.editing = false;
+  }
+  cancelEdit(todoitem:Todo):void {
+    todoitem.title = this.beforeEditCache;
     todoitem.editing = false;
   }
   
