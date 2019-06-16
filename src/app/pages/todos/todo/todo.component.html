@@ -6,10 +6,16 @@
   <div>
     <ul class="list-group">
 	    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of todos">
-        <div *ngIf="!item.editing else edittodo" (dblclick)="editTodoItem(item)">{{item.title}}</div>
+        <input type="checkbox" [(ngModel)]="item.completed">
+        <div *ngIf="!item.editing else edittodo" (dblclick)="editTodoItem(item)" [ngClass]="{'completed':item.completed}">{{item.title}}</div>
         <input *ngIf="item.editing" type="text" class="form-control" [(ngModel)]="item.title" autofocus (blur)="doneEdit(item)" (keyup.enter)="doneEdit(item)" (keyup.esc)="cancelEdit(item)">
         <span class="badge badge-danger badge-pill" (click)="deleteTodo(item.id)">X</span>
       </li>
     </ul>
   </div>
+  <div class="alert alert-primary mt-2 clearfix">
+    <input type="checkbox" (change)="doAllCompleted()">
+    <button class="btn btn-sm btn-primary" *ngIf="atLeastOneComplete()" (click)="clearCompleted()">Clear Completed</button>
+    <span  class="float-right">{{remaining()}} remainings</span> 
+    </div>
 </div>

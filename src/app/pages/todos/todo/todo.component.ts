@@ -69,6 +69,18 @@ idForTodo:number;
     todoitem.title = this.beforeEditCache;
     todoitem.editing = false;
   }
+  remaining():number {
+    return this.todos.filter(todo => !todo.completed).length;  
+  }
+  atLeastOneComplete():boolean {
+    return this.todos.filter(todo => todo.completed).length > 0;
+  }
+  clearCompleted(): void {
+    this.todos = this.todos.filter(todo => !todo.completed)
+  }
+  doAllCompleted():void {
+    this.todos.forEach(todo => todo.completed = (<HTMLInputElement>event.target).checked);
+  }
   
 }
 interface Todo {
