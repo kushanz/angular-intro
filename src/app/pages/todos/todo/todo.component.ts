@@ -10,11 +10,13 @@ todos: Todo[];
 todoTitle:string;
 beforeEditCache:string;
 idForTodo:number;
+filter: string;
 
 
   constructor() { }
 
   ngOnInit() {
+    this.filter = "all";
     this.todoTitle = "";
     this.beforeEditCache = "";
     this.todos = [
@@ -80,6 +82,16 @@ idForTodo:number;
   }
   doAllCompleted():void {
     this.todos.forEach(todo => todo.completed = (<HTMLInputElement>event.target).checked);
+  }
+  todosFiltered(): Todo[] {
+    if(this.filter == 'all') {
+      return this.todos;
+    } else if(this.filter == 'active') {
+      return this.todos.filter(todo => !todo.completed);
+    }else if(this.filter == 'completed') {
+      return this.todos.filter(todo => todo.completed);
+    }
+    return this.todos;
   }
   
 }
