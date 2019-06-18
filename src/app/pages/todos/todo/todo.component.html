@@ -5,7 +5,7 @@
   </div>
   <div>
     <ul class="list-group">
-	    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of todosFiltered()">
+	    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of todosFiltered()" @fade2>
         <input type="checkbox" [(ngModel)]="item.completed">
         <div *ngIf="!item.editing else edittodo" (dblclick)="editTodoItem(item)" [ngClass]="{'completed':item.completed}">{{item.title}}</div>
         <input *ngIf="item.editing" type="text" class="form-control" [(ngModel)]="item.title" autofocus (blur)="doneEdit(item)" (keyup.enter)="doneEdit(item)" (keyup.esc)="cancelEdit(item)">

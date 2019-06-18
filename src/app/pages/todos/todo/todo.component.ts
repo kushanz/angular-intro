@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import {trigger,transition,style,animate} from '@angular/animations';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  styleUrls: ['./todo.component.css'],
+  animations:[
+    trigger('fade2', [
+      transition('void=>*',[style({opacity:0,transform:'translateY(10px)'}),animate(500)]),
+      transition('*=>void',[animate(500,style({opacity:0,transform:'translateY(30px)'}))])
+    ])
+  ]
 })
 export class TodoComponent implements OnInit {
 todos: Todo[];
