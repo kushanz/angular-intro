@@ -8,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class HomeComponent implements OnInit {
-
+loadModal:boolean = true;
   constructor() {
     
   }
 
   ngOnInit() {
   }
- 
+ open():void {
+   this.loadModal = true;
+ }
+ close():void {
+   this.loadModal = false;
+ }
 }
